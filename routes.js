@@ -12,6 +12,7 @@ const requestHandler = (req,res) => {
         res.write('</html>');
         return res.end();
     }
+
     if(url === '/message'  && method === 'POST')
     {
         const body =[];
@@ -31,13 +32,13 @@ const requestHandler = (req,res) => {
             });
         });
     }
+    
     res.setHeader('Content-Type','text/html');
     res.write('<html>');
     res.write('<head><title>My first page</title></head>');
     res.write('<body><h1>Hello from Node.js Server</h1></bod>');
     res.write('</html>');
     res.end();
-
 };
 
 // module.exports = {
