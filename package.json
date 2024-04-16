@@ -11,6 +11,9 @@
   "author": "Bhumit Patel",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.1.0" 
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
   }
 }
