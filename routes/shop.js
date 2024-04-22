@@ -11,4 +11,4 @@ const router = express.Router();
         // res.sendFile('/');
     });
 
-module.exports = router;
+exports.routes = router;
