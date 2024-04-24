@@ -9,7 +9,7 @@ const products = []
     // });
 
     router.get( '/add_product', (req,res,next) => {
-        res.sendFile(path.join(rootDir, 'views', 'add_product.html'));
+        res.render('add_product', {pageTitle: 'Add Prodcut'});
     });
     router.post( '/add_product', (req,res,next) => {
         products.push({title: req.body.title});
