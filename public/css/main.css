@@ -52,7 +52,7 @@ main
 
 
 
-.grid {
+  .grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -107,4 +107,6 @@ main
     background-color: #6200fc;
     color: white;
   }
+  
+
   
