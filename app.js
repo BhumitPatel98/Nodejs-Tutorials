@@ -8,8 +8,8 @@ const { engine } = require('express-handlebars');
 
 const app = express();
 
-app.engine('handlebars', engine({ extname: 'hbs', layoutsDir:'views/layouts/', defaultLayout: "main_layout"}));
-app.set('view engine', 'hbs');
+// app.engine('handlebars', engine({ layoutsDir:'views/layouts/', defaultLayout: "main_layout",extname: 'hbs' }));
+app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminData = require('./routes/admin');

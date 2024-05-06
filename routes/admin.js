@@ -9,7 +9,7 @@ const products = []
     // });
 
     router.get( '/add_product', (req,res,next) => {
-        res.render('add_product', {pageTitle: 'Add Product', path: '/admin/add-product'});
+        res.render('add_product', {pageTitle: 'Add Product', path: '/admin/add-product', formsCSS:true, productCSS:true, activeShopAddProduct:true});
     });
     router.post( '/add_product', (req,res,next) => {
         products.push({title: req.body.title});
