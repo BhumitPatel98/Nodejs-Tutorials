@@ -1,8 +1,8 @@
-const http = require('http');
 const express = require('express');
 const path = require('path');
 const bodyParser =  require('body-parser');
 const { engine } = require('express-handlebars');
+const errorscontroller = require('./controllers/errors');
 // const {engine} = require('express-handlebars');
 // import { engine } from 'express-handlebars';
 
@@ -12,19 +12,17 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const adminData = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 const shopData = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
 
-app.use('/admin', adminData.routes);
-app.use(shopData.routes);
+app.use('/admin', adminRoutes);
+app.use(shopData);
 
-app.use((req,res,next) => {
-        res.status(404).render('404', {pageTitle: 'Page Not Found'});
-});
+app.use(errorscontroller.get404);
 
-const server =http.createServer(app);
+// const server =http.createServer(app);
 
-server.listen(3000);
+app.listen(3000);
