@@ -11,8 +11,9 @@ const getProductsFromFile = cb =>{
     fs.readFile(p, (err, filecontent) => {
         if (err) {
             cb ([]);
-        }     
-        cb(JSON.parse(filecontent))    
+        }else{
+            cb(JSON.parse(filecontent))   
+        }
     });
 };
 module.exports = class Product {
@@ -31,8 +32,7 @@ module.exports = class Product {
                     console.log(err);
                 });
         });
-        fs.readFile(p, (err, filecontent) => {});
-
+        // fs.readFile(p, (err, filecontent) => {});
     }
 
     static fetchAll(cb){
