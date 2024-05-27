@@ -1,7 +1,7 @@
 const Product = require('../models/product');
 
 exports.getAddProduct = (req,res,next) => {
-    res.render('admin/add_product', {
+    res.render('admin/edit_product', {
         pageTitle: 'Add Product', 
         path: '/admin/add-product', 
         formsCSS:true, 
@@ -27,5 +27,15 @@ exports.getProducts = (req,res,next) => {
         pageTitle: 'Admin Products', 
         path: '/admin/products'
         });
+    });
+};
+
+exports.getEditProduct = (req,res,next) => {
+    res.render('admin/edit_product', {
+        pageTitle: 'Add Product', 
+        path: '/admin/add-product', 
+        formsCSS:true, 
+        productCSS:true, 
+        activeShopAddProduct:true
     });
 };

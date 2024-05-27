@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const Product = require('./product');
 
 const p = path.join(
     path.dirname(process.mainModule.filename),
@@ -8,7 +7,7 @@ const p = path.join(
     'cart.json'
 );
 module.exports =class Cart{
-    static  addproduct(id, productPrice){
+    static addproduct(id, productPrice){
         // Fetch the previous cart
         fs.readFile(p, (err, filecontent) => {
             let cart = { products: [], totalPrice: 0};
@@ -16,7 +15,10 @@ module.exports =class Cart{
                 cart = JSON.parse(filecontent);
             }
             //analyze the cart => find existing product
-            const existingProductIndex = cart.products.findIndex(prod => prod.id === id);   
+            const existingProductIndex = cart.products.findIndex(
+                prod => prod.id === id
+            );   
+            const existingProduct = cart.products[existingProductIndex];
             let updatedProduct;
             //Add new product/ increase quantity 
             if(existingProduct){
@@ -28,7 +30,7 @@ module.exports =class Cart{
                 updatedProduct = { id: id, qty: 1};
                 cart.products = [...cart.products, updatedProduct];
             } 
-            cart.totalPrice= [...cart.products, updatedProduct];
+            cart.totalPrice = cart.totalPrice + +productPrice;
             fs.writeFile(p, JSON.stringify(cart), err => {
                 console.log(err);
             });
