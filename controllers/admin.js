@@ -5,7 +5,7 @@ const Cart = require('../models/cart');
 exports.getAddProduct = (req,res,next) => {
     res.render('admin/edit_product', {
         pageTitle: 'Add Product', 
-        path: '/admin/add_product', 
+        path: '/admin/add-product', 
         editing: false
     });
 };
@@ -23,7 +23,7 @@ exports.getEditProduct = (req,res,next) => {
         }
         res.render('admin/edit_product', {
             pageTitle: 'Edit Product', 
-            path: '/admin/edit_product', 
+            path: '/admin/edit-product', 
             editing: editMode,
             product: product
         });    
