@@ -41,7 +41,7 @@ exports.postAddProduct = (req,res,next) => {
 };
 
 exports.postEditProduct = (req,res,next) => {
-
+    const prodId = req.body
 };
 
 exports.getProducts = (req,res,next) => {
